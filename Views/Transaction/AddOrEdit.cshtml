@@ -1,17 +1,17 @@
 ﻿@model BankTransactions.Models.Transaction
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Transaction";
 }
 
-<h1>Create</h1>
 
-<h4>Transaction</h4>
-<hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="col-md-6 offset-md-4">
+        <h1>Transaction</h1>
+        <form asp-action="AddOrEdit" autocomplete="off">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TransactionId" />
+            <input type="hidden" asp-for="Date" />
             <div class="form-group">
                 <label asp-for="AccountNumber" class="control-label"></label>
                 <input asp-for="AccountNumber" class="form-control" />
@@ -38,19 +38,14 @@
                 <span asp-validation-for="Amount" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
-                <span asp-validation-for="Date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Submit" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">View All</a>
 </div>
 
 @section Scripts {
